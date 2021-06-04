@@ -20,8 +20,10 @@ use App\Http\Controllers\Api\AuthController;
 });*/
 
 //Route::resource('users', AuthController::class);
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('/register', [AuthController::class, 'register']);
-Route::get('/profile', [AuthController::class, 'profile']);
-Route::get('/logout', [AuthController::class, 'logout']);
-Route::get('/logoutall', [AuthController::class, 'logoutall']);
+Route::group(['prefix' => 'v1'], function () {//añade un prefijo
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::get('/profile', [AuthController::class, 'profile']);
+    Route::get('/logout', [AuthController::class, 'logout']);
+    Route::get('/logoutall', [AuthController::class, 'logoutall']);
+});
