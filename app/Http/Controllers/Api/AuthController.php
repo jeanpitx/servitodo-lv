@@ -54,6 +54,7 @@ class AuthController extends Controller
                 'response' => 'success',
                 'message' => 'Login successful',
                 'token' => $token,
+                'user' => $user->name,
             ], 200);
         }else{
             return response()->json(['response' => 'failed','message' => 'Invalid login credentials'], 401);
@@ -85,6 +86,7 @@ class AuthController extends Controller
                                 'response' => 'success',
                                 'message'=> 'registration successful',
                                 'token'=> $token,
+                                'user' => $user->name,
                                 ], 200);
     }
 
