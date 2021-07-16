@@ -14,6 +14,10 @@ module.exports = {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
         },
+        screens: {
+            'xs': '0px',
+            // => @media (min-width: 0px) { ... }
+          },
     },
 
     variants: {

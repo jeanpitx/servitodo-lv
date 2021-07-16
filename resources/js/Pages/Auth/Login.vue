@@ -1,82 +1,135 @@
 <template>
-    <breeze-validation-errors class="mb-4" />
+  <div class="container mx-auto px-4 h-full">
+    <div class="flex content-center items-center justify-center h-full">
+      <div class="w-full lg:w-4/12 px-4">
+        <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
+          <!--<div class="rounded-t mb-0 px-6 py-6">
+            <div class="text-center mb-3">
+              <h6 class="text-blueGray-500 text-sm font-bold">
+                Sign in with
+              </h6>
+            </div>
+            <div class="btn-wrapper text-center">
+              <button class="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150" type="button">
+                <img alt="..." class="w-5 mr-1" :src="github" />
+                Github
+              </button>
+              <button class="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150" type="button">
+                <img alt="..." class="w-5 mr-1" :src="google" />
+                Google
+              </button>
+            </div>
+            <hr class="mt-6 border-b-1 border-blueGray-300" />
+          </div>-->
+          <!---<div class="flex-auto px-4 lg:px-10 py-10 pt-0">-->
+          <div class="rounded-t mb-0 px-6 py-6">
+            <!--<div class="text-blueGray-400 text-center mb-3 font-bold">
+              <small>Or sign in with credentials</small>
+            </div>-->
+            <div class="text-center mb-3">
+              <h6 class="text-blueGray-500 text-sm font-bold">
+                Sign in with
+              </h6>
+            </div>
 
-    <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
-        {{ status }}
-    </div>
+            <auth-input-errors class="mb-4" />
+            <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
+              {{ status }}
+            </div>
 
-    <form @submit.prevent="submit">
-        <div>
-            <breeze-label for="email" value="Email" />
-            <breeze-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus autocomplete="username" />
+            <form @submit.prevent="submit">
+              <div class="relative w-full mb-3">
+                <auth-label for="email" value="Email" />
+                <auth-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus autocomplete="username" />
+              </div>
+
+              <div class="relative w-full mb-3">
+                <auth-label for="password" value="Password" />
+                <auth-input label="Password" forLabel="password" id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" />
+              </div>
+              <div>
+                <label class="inline-flex items-center cursor-pointer">
+                  <auth-checkbox id="remember" name="remember" v-model:checked="form.remember" />
+                  <span class="ml-2 text-sm font-semibold text-blueGray-600">
+                    Remember me
+                  </span>
+                </label>
+              </div>
+
+              <div class="text-center mt-6">
+                <auth-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                  Log In
+                </auth-button>
+              </div>
+            </form>
+          </div>
         </div>
 
-        <div class="mt-4">
-            <breeze-label for="password" value="Password" />
-            <breeze-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" />
-        </div>
-
-        <div class="block mt-4">
-            <label class="flex items-center">
-                <breeze-checkbox name="remember" v-model:checked="form.remember" />
-                <span class="ml-2 text-sm text-gray-600">Remember me</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <inertia-link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                Forgot your password?
+        <div class="flex flex-wrap mt-6 relative">
+          <div class="w-1/2">
+            <inertia-link v-if="canResetPassword" :href="route('password.request')" class="text-blueGray-200">
+              <small>Forgot password?</small>
             </inertia-link>
-
-            <breeze-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Log in
-            </breeze-button>
+          </div>
+          <div class="w-1/2 text-right">
+            <inertia-link v-if="$page.props.canRegister" :href="route('register')" class="text-blueGray-200">
+              <small>Create new account</small>
+            </inertia-link>
+          </div>
         </div>
-    </form>
+        
+      </div>
+    </div>
+  </div>
 </template>
-
 <script>
-    import BreezeButton from '@/Components/Button'
-    import BreezeGuestLayout from "@/Layouts/Guest"
-    import BreezeInput from '@/Components/Input'
-    import BreezeCheckbox from '@/Components/Checkbox'
-    import BreezeLabel from '@/Components/Label'
-    import BreezeValidationErrors from '@/Components/ValidationErrors'
+  import Auth from "@/Layouts/Auth";
+  import AuthLabel from '@/Components/Labels/AuthLabel';
+  import AuthInput from '@/Components/Inputs/AuthInput';
+  import AuthCheckbox from '@/Components/Checkboxs/AuthCheckbox';
+  import AuthButton from '@/Components/Buttons/AuthButton';
+  import AuthInputErrors from '@/Components/Errors/AuthInputErrors';
 
-    export default {
-        layout: BreezeGuestLayout,
+  //import github from "@/assets/img/github.svg";
+  //import google from "@/assets/img/google.svg";
 
-        components: {
-            BreezeButton,
-            BreezeInput,
-            BreezeCheckbox,
-            BreezeLabel,
-            BreezeValidationErrors
-        },
+  export default {
+    layout: Auth,
 
-        props: {
-            auth: Object,
-            canResetPassword: Boolean,
-            errors: Object,
-            status: String,
-        },
+    components: {
+      AuthInput,
+      AuthLabel,
+      AuthCheckbox,
+      AuthButton,
+      AuthInputErrors,
+    },
 
-        data() {
-            return {
-                form: this.$inertia.form({
-                    email: '',
-                    password: '',
-                    remember: false
-                })
-            }
-        },
+    props: {
+      auth: Object,
+      canResetPassword: Boolean,
+      canRegister: Boolean,
+      errors: Object,
+      status: String,
+    },
 
-        methods: {
-            submit() {
-                this.form.post(this.route('login'), {
-                    onFinish: () => this.form.reset('password'),
-                })
-            }
-        }
-    }
+    data() {
+      return {
+        form: this.$inertia.form({
+          email: '',
+          password: '',
+          remember: false
+        }),
+        //github,
+        //google,
+      }
+    },
+
+    methods: {
+      submit() {
+        this.form.post(this.route('login'), {
+          onFinish: () => this.form.reset('password'),
+        })
+      }
+    },
+  };
 </script>
