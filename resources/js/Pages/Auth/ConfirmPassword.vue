@@ -1,60 +1,79 @@
 <template>
-    <div class="mb-4 text-sm text-gray-600">
-        This is a secure area of the application. Please confirm your password before continuing.
+  <div class="container mx-auto px-4 h-full">
+    <div class="flex content-center items-center justify-center h-full">
+      <div class="w-full lg:w-4/12 px-4">
+        <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
+          <div class="rounded-t mb-0 px-6 py-6">
+            <div class="text-center mb-3">
+              <h6 class="text-blueGray-500 text-sm font-bold">
+                Confirm Password
+              </h6>
+            </div>
+
+            <div class="mb-4 text-sm text-gray-600">
+              This is a secure area of the application. Please confirm your password before continuing.
+            </div>
+
+            <auth-input-errors class="mb-4" />
+            <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
+              {{ status }}
+            </div>
+
+            <form @submit.prevent="submit">
+              <div class="relative w-full mb-3">
+                <auth-label for="password" value="Password" />
+                <auth-input label="Password" forLabel="password" id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" autofocus />
+              </div>
+
+              <div class="mt-4 flex items-center justify-between">
+                <auth-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                  Confirm
+                </auth-button>
+              </div>
+            </form>
+          </div>
+        </div>
+        
+      </div>
     </div>
-
-    <breeze-validation-errors class="mb-4" />
-
-    <form @submit.prevent="submit">
-        <div>
-            <breeze-label for="password" value="Password" />
-            <breeze-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" autofocus />
-        </div>
-
-        <div class="flex justify-end mt-4">
-            <breeze-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Confirm
-            </breeze-button>
-        </div>
-    </form>
+  </div>
 </template>
-
 <script>
-    import BreezeButton from '@/Components/Button'
-    import BreezeGuestLayout from "@/Layouts/Guest"
-    import BreezeInput from '@/Components/Input'
-    import BreezeLabel from '@/Components/Label'
-    import BreezeValidationErrors from '@/Components/ValidationErrors'
+  import AuthButton from '@/Components/Buttons/AuthButton';
+  import Auth from "@/Layouts/Auth";
+  import AuthLabel from '@/Components/Labels/AuthLabel';
+  import AuthInput from '@/Components/Inputs/AuthInput';
+  import AuthInputErrors from '@/Components/Errors/AuthInputErrors';
 
-    export default {
-        layout: BreezeGuestLayout,
+  export default {
+    layout: Auth,
 
-        components: {
-            BreezeButton,
-            BreezeInput,
-            BreezeLabel,
-            BreezeValidationErrors,
-        },
+    components: {
+      AuthButton,
+      AuthLabel,
+      AuthInput,
+      AuthInputErrors,
+    },
 
-        props: {
-            auth: Object,
-            errors: Object,
-        },
+    props: {
+      auth: Object,
+      errors: Object,
+    },
 
-        data() {
-            return {
-                form: this.$inertia.form({
-                    password: '',
-                })
-            }
-        },
+    data() {
+      return {
+        form: this.$inertia.form({
+          password: '',
+        })
+      }
+    },
 
-        methods: {
-            submit() {
-                this.form.post(this.route('password.confirm'), {
-                    onFinish: () => this.form.reset(),
-                })
-            }
-        }
-    }
+    methods: {
+      submit() {
+        this.form.post(this.route('password.confirm'), {
+          onFinish: () => this.form.reset(),
+        })
+      }
+    },
+  };
 </script>

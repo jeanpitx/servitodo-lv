@@ -56,6 +56,11 @@
               Dashboard
             </sidebar-link>
           </li>
+          <li class="items-center">
+            <sidebar-link :href="route('test')" :active="route().current('test')" :icon="'fas fa-shield-alt'">
+              Test Secure
+            </sidebar-link>
+          </li>
         </ul>
 
         <!-- Divider -->

@@ -748,7 +748,7 @@ select {
   outline: 1px auto -webkit-focus-ring-color;
 }
 
-/*.container {
+.container {
   width: 100%;
 }
 
@@ -756,7 +756,7 @@ select {
   .container {
     max-width: 0px;
   }
-}*/
+}
 
 .space-y-0 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
@@ -32049,7 +32049,7 @@ select {
 }
 
 @media (min-width: 0px) {
-  /*.xs\:container {
+  .xs\:container {
     width: 100%;
   }
 
@@ -32057,7 +32057,7 @@ select {
     .xs\:container {
       max-width: 0px;
     }
-  }*/
+  }
 
   .xs\:space-y-0 > :not([hidden]) ~ :not([hidden]) {
     --tw-space-y-reverse: 0;

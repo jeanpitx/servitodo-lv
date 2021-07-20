@@ -47,6 +47,7 @@
                 <auth-label for="password" value="Password" />
                 <auth-input label="Password" forLabel="password" id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" />
               </div>
+              
               <div>
                 <label class="inline-flex items-center cursor-pointer">
                   <auth-checkbox id="remember" name="remember" v-model:checked="form.remember" />
