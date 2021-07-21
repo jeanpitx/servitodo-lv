@@ -3,17 +3,17 @@
         <!-- Sidebar -->
         <sidebar />
         <!-- Div Gray Content -->
-        <div class="relative md:ml-64 bg-blueGray-100 min-h-screen">
+        <div class="relative md:ml-64 bg-blueGray-100 min-h-screen dark:bg-gray-700">
             <!-- Navbar And Div Green Color -->
             <admin-navbar />
-            <div class="relative bg-emerald-600 pt-20 xs:hidden md:block"></div>
+            <div class="relative bg-emerald-600 pt-20 xs:hidden md:block dark:bg-green-800"></div>
             <!-- Div Page Content -->
             <div class="mx-auto w-full -m-24 pt-24 min-h-screen flex flex-col justify-between">
                 <div>
                     <!-- Page Heading -->
-                    <header class="bg-white shadow" v-if="$slots.header">
+                    <header class="dark:bg-gray-800 bg-white shadow" v-if="$slots.header">
                         <div class="w-max mx-auto py-4 px-4 sm:px-6 lg:px-8">
-                            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                            <h2 class="dark:text-gray-200 font-semibold text-xl text-gray-800 leading-tight">
                                 <slot name="header" />
                             </h2>
                         </div>

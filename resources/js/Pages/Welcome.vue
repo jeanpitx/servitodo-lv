@@ -1,16 +1,16 @@
 <template>
   <div>
     <index-navbar />
-    <section class="header relative pt-16 items-center flex h-screen max-h-860-px">
-      <div class="container mx-auto items-center flex flex-wrap">
+    <section class="dark:bg-gray-800 header relative pt-16 items-center flex h-screen max-h-860-px">
+      <div class="z-10 container mx-auto items-center flex flex-wrap">
         <div class="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-4">
           <div class="pt-32 sm:pt-0">
-            <h2 class="font-semibold text-4xl text-blueGray-600">
+            <h2 class="font-semibold text-4xl text-blueGray-600 dark:text-gray-200">
               Vue Notus - A beautiful extension for Tailwind CSS.
             </h2>
-            <p class="mt-4 text-lg leading-relaxed text-blueGray-500">
+            <p class="mt-4 text-lg leading-relaxed text-blueGray-500 dark:text-gray-200">
               Vue Notus is Free and Open Source. It does not change any of the CSS from
-              <a href="https://tailwindcss.com/?ref=creativetim" class="text-blueGray-600" target="_blank">
+              <a href="https://tailwindcss.com/?ref=creativetim" class="text-blueGray-600 dark:text-gray-500" target="_blank">
                 Tailwind CSS.
               </a>
               It features multiple HTML elements and it comes with dynamic components for ReactJS, Vue and Angular.
@@ -27,13 +27,13 @@
         </div>
       </div>
 
-      <img class="absolute xs:hidden md:block top-0 b-auto right-0 pt-16 sm:w-6/12 -mt-48 sm:mt-0 w-10/12 max-h-860-px" :src="patternVue" alt="..."/>
+      <img class="absolute md:block top-0 b-auto right-0 pt-16 sm:w-6/12 -mt-48 sm:mt-0 w-10/12 max-h-860-px" :src="patternVue" alt="..."/>
     </section>
 
-    <section class="mt-48 md:mt-40 pb-40 relative bg-blueGray-100">
-      <div class="-mt-20 top-0 bottom-auto left-0 right-0 w-full absolute h-20" style="transform: translateZ(0);">
+    <section class="mt-48 md:mt-40 pb-40 relative bg-blueGray-100 dark:bg-gray-600">
+      <div class="-mt-16 top-0 bottom-auto left-0 right-0 w-full absolute h-20" style="transform: translateZ(0);">
         <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
-          <polygon class="text-blueGray-100 fill-current" points="2560 0 2560 100 0 100"></polygon>
+          <polygon class="text-blueGray-100 fill-current dark:text-gray-800" points="2560 0 2560 70 0 70"></polygon>
         </svg>
       </div>
       <div class="sm:container mx-auto">
@@ -63,10 +63,10 @@
                     <div class="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
                       <i class="fas fa-sitemap"></i>
                     </div>
-                    <h6 class="text-xl mb-1 font-semibold">
+                    <h6 class="text-xl mb-1 font-semibold dark:text-gray-900">
                       CSS Components
                     </h6>
-                    <p class="mb-4 text-blueGray-500">
+                    <p class="mb-4 text-blueGray-500 dark:text-gray-200">
                       Vue Notus comes with a huge number of Fully Coded CSS components.
                     </p>
                   </div>
@@ -76,10 +76,10 @@
                     <div class="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
                       <i class="fas fa-drafting-compass"></i>
                     </div>
-                    <h6 class="text-xl mb-1 font-semibold">
+                    <h6 class="text-xl mb-1 font-semibold dark:text-gray-900">
                       JavaScript Components
                     </h6>
-                    <p class="mb-4 text-blueGray-500">
+                    <p class="mb-4 text-blueGray-500 dark:text-gray-200">
                       We also feature many dynamic components for React, NextJS, Vue and Angular.
                     </p>
                   </div>
@@ -91,8 +91,8 @@
                     <div class="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
                       <i class="fas fa-newspaper"></i>
                     </div>
-                    <h6 class="text-xl mb-1 font-semibold">Pages</h6>
-                    <p class="mb-4 text-blueGray-500">
+                    <h6 class="text-xl mb-1 font-semibold dark:text-gray-900">Pages</h6>
+                    <p class="mb-4 text-blueGray-500 dark:text-gray-200">
                       This extension also comes with 3 sample pages. They are fully coded so you can start working instantly.
                     </p>
                   </div>
@@ -102,10 +102,10 @@
                     <div class="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
                       <i class="fas fa-file-alt"></i>
                     </div>
-                    <h6 class="text-xl mb-1 font-semibold">
+                    <h6 class="text-xl mb-1 font-semibold dark:text-gray-900">
                       Documentation
                     </h6>
-                    <p class="mb-4 text-blueGray-500">
+                    <p class="mb-4 text-blueGray-500 dark:text-gray-200">
                       Built by developers for developers. You will love how easy is to to work with Vue Notus.
                     </p>
                   </div>
@@ -163,13 +163,13 @@
             <div class="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
               <i class="fas fa-drafting-compass text-xl"></i>
             </div>
-            <h3 class="text-3xl mb-2 font-semibold leading-normal">
+            <h3 class="dark:text-gray-200 text-3xl mb-2 font-semibold leading-normal">
               Javascript Components
             </h3>
-            <p class="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
+            <p class="dark:text-gray-300 text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
               In order to create a great User Experience some components require JavaScript. In this way you can manipulate the elements on the page and give more options to your users.
             </p>
-            <p class="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
+            <p class="dark:text-gray-300 text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
               We created a set of Components that are dynamic and come to help you.
             </p>
             <div class="block pb-6">
@@ -198,7 +198,7 @@
                 Tooltips
               </span>
             </div>
-            <a href="https://www.creative-tim.com/learning-lab/tailwind/vue/alerts/notus?ref=vn-index" target="_blank" class="font-bold text-blueGray-700 hover:text-blueGray-500 ease-linear transition-all duration-150">
+            <a href="https://www.creative-tim.com/learning-lab/tailwind/vue/alerts/notus?ref=vn-index" target="_blank" class="dark:text-gray-900 dark:hover:text-gray-700 font-bold text-blueGray-700 hover:text-blueGray-500 ease-linear transition-all duration-150">
               View all
               <i class="fa fa-angle-double-right ml-1 leading-relaxed"></i>
             </a>
@@ -208,7 +208,7 @@
 
     </section>
 
-    <section class="pb-16 bg-blueGray-200 relative pt-32">
+    <section class="dark:bg-gray-600 bg-blueGray-200 relative pt-32">
       <div class="-mt-20 top-0 bottom-auto left-0 right-0 w-full absolute h-20" style="transform: translateZ(0);">
         <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
           <polygon class="text-blueGray-200 fill-current" points="2560 0 2560 100 0 100"></polygon>
@@ -216,17 +216,17 @@
       </div>
 
       <div class="sm:container mx-auto">
-        <div class="flex flex-wrap justify-center bg-white shadow-xl rounded-lg -mt-64 py-16 px-12 relative z-10">
+        <div class="flex flex-wrap justify-center bg-white dark:bg-gray-800 shadow-xl rounded-lg -mt-64 py-16 px-12 relative z-10">
           <div class="w-full text-center lg:w-8/12">
             <p class="text-4xl text-center">
               <span role="img" aria-label="love">
                 😍
               </span>
             </p>
-            <h3 class="font-semibold text-3xl">
+            <h3 class="dark:text-gray-200 font-semibold text-3xl">
               Do you love this Starter Kit?
             </h3>
-            <p class="text-blueGray-500 text-lg leading-relaxed mt-4 mb-4">
+            <p class="dark:text-gray-400 text-blueGray-500 text-lg leading-relaxed mt-4 mb-4">
               Cause if you do, it can be yours now. Hit the buttons below to navigate to get the Free version for your next project. Build a new web app or give an old project a new look!
             </p>
             <div class="sm:block flex flex-col mt-10">

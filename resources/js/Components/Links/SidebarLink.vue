@@ -13,7 +13,7 @@
             classeslink() {
                 return (this.active
                     ? 'text-emerald-500 hover:text-emerald-600'
-                    : 'text-blueGray-700 hover:text-blueGray-500') + ' text-xs uppercase py-3 font-bold block'
+                    : 'dark:text-gray-200 dark:hover:text-gray-300 text-blueGray-700 hover:text-blueGray-500') + ' text-xs uppercase py-3 font-bold block'
             },
             classesicon() {
                 return (this.active

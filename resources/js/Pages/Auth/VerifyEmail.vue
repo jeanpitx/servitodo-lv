@@ -2,14 +2,14 @@
   <div class="container mx-auto px-4 h-full">
     <div class="flex content-center items-center justify-center h-full">
       <div class="w-full lg:w-4/12 px-4">
-        <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
+        <div class="dark:bg-gray-700 relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
           <div class="rounded-t mb-0 px-6 py-6">
             <div class="text-center mb-3">
-              <h6 class="text-blueGray-500 text-sm font-bold">
+              <h6 class="dark:text-gray-200 text-blueGray-500 text-sm font-bold">
                 Reset Password
               </h6>
             </div>
-            <div class="mb-4 text-sm text-gray-600">
+            <div class="dark:text-gray-300 mb-4 text-sm text-gray-600">
               Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.
             </div>
 
@@ -24,7 +24,7 @@
                 </auth-button>
               </div>
               <div class="mt-4 flex items-center justify-between">
-                <inertia-link :href="route('logout')" method="post" as="button" class="w-full underline text-sm text-gray-600 hover:text-gray-900">Log Out</inertia-link>
+                <inertia-link :href="route('logout')" method="post" as="button" class="dark:text-gray-300 w-full underline text-sm text-gray-600 hover:text-gray-900">Log Out</inertia-link>
               </div>
             </form>
           </div>

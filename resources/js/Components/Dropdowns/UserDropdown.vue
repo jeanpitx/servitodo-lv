@@ -1,6 +1,6 @@
 <template>
   <div>
-    <dropdown align="right" width="48">
+    <dropdown align="right" width="48" contentClasses="bg-white dark:bg-gray-600">
       <template #trigger>
         <span class="inline-flex rounded-md">
           <button type="button" class="text-blueGray-500 block">
@@ -14,20 +14,20 @@
       </template>
 
       <template #content>
-        <span class="text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400">
+        <span class="dark:text-gray-400 text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400">
           Home Page
         </span>
-        <dropdown-link :href="'/'">
+        <dropdown-link :href="'/'" class="dark:text-gray-200">
           Home
         </dropdown-link>
         <div class="h-0 mx-4 my-2 border border-solid border-blueGray-100" />
-        <span class="text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400">
+        <span class="dark:text-gray-400 text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400">
           Auth Layout
         </span>
-        <dropdown-link :href="'#'">
+        <dropdown-link :href="'#'" class="dark:text-gray-200">
           Profile
         </dropdown-link>
-        <dropdown-link :href="route('logout')" method="post" as="button">
+        <dropdown-link :href="route('logout')" method="post" as="button" class="dark:text-gray-200">
           Log Out
         </dropdown-link>
       </template>
@@ -50,7 +50,6 @@ export default {
 
   data() {
     return {
-      dropdownPopoverShow: false,
       image: image,
     };
   },
