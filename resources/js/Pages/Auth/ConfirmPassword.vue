@@ -43,7 +43,7 @@
   import Auth from "@/Layouts/Auth";
   import AuthLabel from '@/Components/Labels/AuthLabel';
   import AuthInput from '@/Components/Inputs/AuthInput';
-  import AuthInputErrors from '@/Components/Errors/AuthInputErrors';
+  import AuthInputErrors from '@/Components/Messages/AuthInputErrors';
 
   export default {
     layout: Auth,

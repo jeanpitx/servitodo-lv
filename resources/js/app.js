@@ -8,6 +8,7 @@ import { InertiaProgress } from '@inertiajs/progress';
 // styles
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "@/assets/styles/tailwind.css";
+import 'dropzone-vue/dist/dropzone-vue.common.css';
 
 const el = document.getElementById('app');
 
@@ -22,4 +23,6 @@ createApp({
     .use(InertiaPlugin)
     .mount(el);
 
-InertiaProgress.init({ color: '#4B5563' });
+InertiaProgress.init({ 
+    color: '#4B5563' 
+});

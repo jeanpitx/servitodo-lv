@@ -67,7 +67,7 @@
   import AuthInput from '@/Components/Inputs/AuthInput';
   import AuthCheckbox from '@/Components/Checkboxs/AuthCheckbox';
   import AuthButton from '@/Components/Buttons/AuthButton';
-  import AuthInputErrors from '@/Components/Errors/AuthInputErrors';
+  import AuthInputErrors from '@/Components/Messages/AuthInputErrors';
 
   //import github from "@/assets/img/github.svg";
   //import google from "@/assets/img/google.svg";

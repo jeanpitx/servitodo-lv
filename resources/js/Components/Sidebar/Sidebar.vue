@@ -61,6 +61,13 @@
               Test Secure
             </sidebar-link>
           </li>
+          <li class="items-center">
+            <sidebar-trash-dropdown title="Categoría" :href="route('trash.categories')">
+              <sidebar-link :href="route('categories.index')" :active="route().current().includes('categories')" :icon="'fas fa-shield-alt'">
+                Categoría
+              </sidebar-link>
+            </sidebar-trash-dropdown>
+          </li>
         </ul>
 
         <!-- Divider -->
@@ -85,17 +92,16 @@
             </a>
           </li>
         </ul>
-
       </div>
     </div>
   </nav>
 </template>
-); }
 
 <script>
 import NotificationDropdown from "@/Components/Dropdowns/NotificationDropdown.vue";
 import UserDropdown from "@/Components/Dropdowns/UserDropdown.vue";
 import SidebarLink from "@/Components/Links/SidebarLink.vue";
+import SidebarTrashDropdown from '@/Components/Dropdowns/SidebarTrashDropdown';
 
 export default {
   data() {
@@ -112,6 +118,10 @@ export default {
     NotificationDropdown,
     UserDropdown,
     SidebarLink,
+    SidebarTrashDropdown
   },
+  mounted: function () {
+    
+  }
 };
 </script>

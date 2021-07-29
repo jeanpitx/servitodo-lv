@@ -4,6 +4,8 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+use App\Http\Controllers\CategoryController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,8 +31,16 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/test', function () {
-    return Inertia::render('Test');
+    return Inertia::render('SafeTest');
 })->middleware(['auth', 'verified', 'password.confirm'])->name('test');
+
+
+Route::resources([
+    'categories' => CategoryController::class
+]);
+Route::get('/trash/categories', [CategoryController::class, 'trashbin'])->middleware(['auth', 'verified', 'password.confirm'])->name('trash.categories');
+Route::post('/trash/categories/only', [CategoryController::class, 'trashonly'])->middleware(['auth', 'verified', 'password.confirm'])->name('trash.categories.only');
+Route::post('/trash/categories/all', [CategoryController::class, 'trashall'])->middleware(['auth', 'verified', 'password.confirm'])->name('trash.categories.all');
 
 //require __DIR__.'/auth.php';
 @include('auth.php');
