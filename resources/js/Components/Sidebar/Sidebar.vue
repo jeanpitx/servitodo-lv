@@ -5,9 +5,9 @@
       <button class="dark:text-gray-200 cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid /*border-transparent*/" type="button" v-on:click="toggleCollapseShow('bg-white m-2 py-3 px-6')">
         <i class="fas fa-bars"></i>
       </button>
-      <!-- Brand -->
+      <!-- Brand, el app name se comparte en el middleware hadle inertia request -->
       <inertia-link :href="route('home')" class="dark:text-gray-200 ml-11 md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0">
-        Servitodo
+        {{ $page.props.appName }}
       </inertia-link>
       <!-- User -->
       <ul class="md:hidden items-center flex flex-wrap list-none">

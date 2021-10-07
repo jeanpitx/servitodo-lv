@@ -34,8 +34,8 @@
                     </div>
                 </div> 
             </div> 
-
-            <input type="file" class="dropzone__input h-full w-full opacity-0" :name="name" :id="id" :accept="accept"/>
+            <input v-if="this.required=='true'" type="file" class="dropzone__input h-full w-full opacity-0" :name="name" :id="id" :accept="accept" required/>
+            <input v-else type="file" class="dropzone__input h-full w-full opacity-0" :name="name" :id="id" :accept="accept"/>
         </div>
         <div class="flex justify-between items-center text-gray-400 mt-0 ml-2"> 
             <span>
@@ -59,7 +59,7 @@ export default {
             happyfile,
         };
     },
-    props: ['name','id','accept','src'],
+    props: ['name','id','accept','src','required'],
 
     mounted: function () {
         if(this.src){
@@ -88,7 +88,8 @@ export default {
         });
 
         $(".dropzone__item-control").click(function() {
-            $(".dropzone__input").val("");
+            $(".dropzone__input").val(null);
+            $(".nametext").html("");
             $(".select-file").show();
             $(".selected-file").hide();
         });

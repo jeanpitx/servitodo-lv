@@ -48,7 +48,7 @@ class AuthController extends Controller
         if (Auth::attempt($request->only('email', 'password'))) {
             //$token = Str::random(60);//esto se utiliza con el campo api_token dentro de la tabla y con hash activado en config/auth.hp
             //$user=User::find($request->user()->id)->update(['api_token' => hash('sha256', $token)]);
-            $user=User::find($request->user()->id)->firstOrFail();
+            $user=User::find($request->user()->id);
             $token = $user->createToken('auth_token')->plainTextToken;
             return response()->json([
                 'response' => 'success',
@@ -133,6 +133,10 @@ class AuthController extends Controller
      */
     public function profile(Request $request)
     {
-        return $request->user();
+        if(Auth::check()){
+            return $request->user();
+        }else{
+            return response()->json(['response' => 'success','error' =>'something went wrong'], 500);
+        }
     }
 }

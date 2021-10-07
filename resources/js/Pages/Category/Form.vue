@@ -35,7 +35,7 @@
                         <div class="w-full lg:w-12/12 px-4">
                             <div class="relative w-full mb-3">
                                 <admin-label for="uri_image" :value="formTitles[3]"/>
-                                <admin-input-file name="uri_image" id="uri_image" :src="category?category.uri_image.replace('public','/storage'):''" accept="image/*" @input="form.uri_image = $event.target.files[0]"  />
+                                <admin-input-file name="uri_image" id="uri_image" :src="category?category.uri_image.replace('public','/storage'):''" accept="image/*" @input="form.uri_image = $event.target.files[0]" required="true" />
                             </div>
                             <progress class="w-full" v-if="form.progress" :value="form.progress.percentage" max="100">
                                 {{ form.progress.percentage }}%
